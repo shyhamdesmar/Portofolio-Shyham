@@ -14,6 +14,32 @@
     <link rel="stylesheet" href="assets/css/styles.css">
 
     <title>Shyham — Teknik Elektronika Industri</title>
+
+    <style>
+        .lang-switcher {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-family: var(--body-font, sans-serif);
+            font-size: 0.85rem;
+            color: #888;
+            margin-left: 1rem;
+        }
+
+        .lang-btn {
+            background: none;
+            border: none;
+            color: #888;
+            cursor: pointer;
+            font-weight: 600;
+            padding: 2px 4px;
+            transition: color 0.3s;
+        }
+
+        .lang-btn:hover, .lang-btn.active {
+            color: #fff;
+        }
+    </style>
 </head>
 
 <body>
@@ -37,21 +63,28 @@
             </a>
 
             <div class="nav__menu" id="nav-menu">
-                <span class="nav__menu-label">Navigasi</span>
+                <span class="nav__menu-label" data-lang-id="Navigasi" data-lang-en="Navigation">Navigasi</span>
                 <ul class="nav__list">
-                    <li class="nav__item"><a href="#home" class="nav__link active-link" data-num="01">Beranda</a></li>
-                    <li class="nav__item"><a href="#about" class="nav__link" data-num="02">Tentang</a></li>
-                    <li class="nav__item"><a href="#skills" class="nav__link" data-num="03">Keahlian</a></li>
-                    <li class="nav__item"><a href="#qualification" class="nav__link" data-num="04">Pendidikan</a></li>
-                    <li class="nav__item"><a href="#services" class="nav__link" data-num="05">Bidang</a></li>
-                    <li class="nav__item"><a href="#portfolio" class="nav__link" data-num="06">Proyek</a></li>
-                    <li class="nav__item"><a href="#contact" class="nav__link" data-num="07">Kontak</a></li>
+                    <li class="nav__item"><a href="#home" class="nav__link active-link" data-num="01" data-lang-id="Beranda" data-lang-en="Home">Beranda</a></li>
+                    <li class="nav__item"><a href="#about" class="nav__link" data-num="02" data-lang-id="Tentang" data-lang-en="About">Tentang</a></li>
+                    <li class="nav__item"><a href="#skills" class="nav__link" data-num="03" data-lang-id="Keahlian" data-lang-en="Skills">Keahlian</a></li>
+                    <li class="nav__item"><a href="#qualification" class="nav__link" data-num="04" data-lang-id="Pendidikan" data-lang-en="Education">Pendidikan</a></li>
+                    <li class="nav__item"><a href="#services" class="nav__link" data-num="05" data-lang-id="Bidang" data-lang-en="Services">Bidang</a></li>
+                    <li class="nav__item"><a href="#portfolio" class="nav__link" data-num="06" data-lang-id="Proyek" data-lang-en="Projects">Proyek</a></li>
+                    <li class="nav__item"><a href="#contact" class="nav__link" data-num="07" data-lang-id="Kontak" data-lang-en="Contact">Kontak</a></li>
                 </ul>
                 <i class="uil uil-times nav__close" id="nav-close"></i>
             </div>
 
             <div class="nav__toggle" id="nav-toggle" aria-label="Buka menu">
                 <span></span><span></span><span></span>
+            </div>
+
+            <!-- TOMBOL PILIHAN BAHASA -->
+            <div class="lang-switcher">
+                <button id="btn-id" class="lang-btn active" onclick="switchLanguage('id')">ID</button>
+                <span>|</span>
+                <button id="btn-en" class="lang-btn" onclick="switchLanguage('en')">EN</button>
             </div>
 
         </nav>
@@ -80,17 +113,17 @@
 
                     <p class="home__greeting">
                         <span class="home__greeting-wave">👋</span>
-                        Halo, selamat datang di portofolio saya
+                        <span data-lang-id="Halo, selamat datang di portofolio saya" data-lang-en="Hello, welcome to my portfolio">Halo, selamat datang di portofolio saya</span>
                     </p>
 
-                    <p class="home__eyebrow">Mahasiswa Teknik Elektronika Industri</p>
+                    <p class="home__eyebrow" data-lang-id="Mahasiswa Teknik Elektronika Industri" data-lang-en="Industrial Electronic Engineering Student">Mahasiswa Teknik Elektronika Industri</p>
 
                     <h1 class="home__title">
                         Shyham Muzzaqi Desmar
-                        <span class="home__title-accent">elektronika, IoT, dan web</span>
+                        <span class="home__title-accent" data-lang-id="elektronika, IoT, dan web" data-lang-en="electronics, IoT, and web">elektronika, IoT, dan web</span>
                     </h1>
 
-                    <p class="home__description">
+                    <p class="home__description" data-lang-id="Saat ini menempuh D3 Teknik Elektronika Industri di Politeknik Negeri Jakarta. Fokus pada mikrokontroler, integrasi perangkat Internet of Things, dan antarmuka web yang mendukungnya." data-lang-en="Currently pursuing a Diploma in Industrial Electronics Engineering at Politeknik Negeri Jakarta. Focused on microcontrollers, IoT integration, and supporting web interfaces.">
                         Saat ini menempuh D3 Teknik Elektronika Industri di Politeknik
                         Negeri Jakarta. Fokus pada mikrokontroler, integrasi perangkat
                         Internet of Things, dan antarmuka web yang mendukungnya.
@@ -98,10 +131,10 @@
 
                     <div class="home__actions">
                         <a href="#contact" class="button">
-                            Hubungi Saya
+                            <span data-lang-id="Hubungi Saya" data-lang-en="Contact Me">Hubungi Saya</span>
                             <i class="uil uil-message"></i>
                         </a>
-                        <a href="#portfolio" class="button button--ghost">
+                        <a href="#portfolio" class="button button--ghost" data-lang-id="Lihat Proyek" data-lang-en="View Projects">
                             Lihat Proyek
                         </a>
                     </div>
@@ -112,14 +145,14 @@
                     <div class="home__portrait-frame">
                         <img src="assets/img/profile.png" alt="Foto Shyham" class="home__portrait-img">
                     </div>
-                    <span class="home__portrait-tag">PNJ · 2024 — Sekarang</span>
+                    <span class="home__portrait-tag" data-lang-id="PNJ · 2024 — Sekarang" data-lang-en="PNJ · 2024 — Present">PNJ · 2024 — Sekarang</span>
                 </div>
 
             </div>
 
             <a href="#about" class="home__scroll" aria-label="Gulir ke bawah">
                 <span class="home__scroll-line"></span>
-                Gulir
+                <span data-lang-id="Gulir" data-lang-en="Scroll">Gulir</span>
             </a>
         </section>
 
@@ -128,8 +161,8 @@
             <div class="container">
 
                 <div class="section__head" data-reveal>
-                    <h2 class="section__title">Tentang Saya</h2>
-                    <p class="section__lead">Sekilas tentang latar belakang dan yang saya kerjakan.</p>
+                    <h2 class="section__title" data-lang-id="Tentang Saya" data-lang-en="About Me">Tentang Saya</h2>
+                    <p class="section__lead" data-lang-id="Sekilas tentang latar belakang dan yang saya kerjakan." data-lang-en="A brief overview of my background and what I do.">Sekilas tentang latar belakang dan yang saya kerjakan.</p>
                 </div>
 
                 <div class="about__container">
@@ -140,7 +173,7 @@
 
                     <div class="about__data" data-reveal data-reveal-delay="1">
 
-                        <p class="about__description">
+                        <p class="about__description" data-lang-id="Saya merupakan mahasiswa Teknik Elektronika Industri yang memiliki ketertarikan pada bidang elektronika, pemrograman, Internet of Things, dan pengembangan web. Saya senang mempelajari teknologi baru dan mengembangkan berbagai proyek." data-lang-en="I am an Industrial Electronics Engineering student with a passion for electronics, programming, Internet of Things, and web development. I enjoy learning new technologies and developing various projects.">
                             Saya merupakan mahasiswa Teknik Elektronika Industri
                             yang memiliki ketertarikan pada bidang elektronika,
                             pemrograman, Internet of Things, dan pengembangan web.
@@ -151,20 +184,20 @@
                         <div class="about__specs">
                             <div class="about__spec">
                                 <span class="about__spec-value">3+</span>
-                                <span class="about__spec-label">Tahun<br>Belajar</span>
+                                <span class="about__spec-label" data-lang-id="Tahun<br>Belajar" data-lang-en="Years<br>Learning">Tahun<br>Belajar</span>
                             </div>
                             <div class="about__spec">
                                 <span class="about__spec-value">10+</span>
-                                <span class="about__spec-label">Proyek<br>Selesai</span>
+                                <span class="about__spec-label" data-lang-id="Proyek<br>Selesai" data-lang-en="Completed<br>Projects">Proyek<br>Selesai</span>
                             </div>
                             <div class="about__spec">
                                 <span class="about__spec-value">2+</span>
-                                <span class="about__spec-label">Pengalaman<br>Magang</span>
+                                <span class="about__spec-label" data-lang-id="Pengalaman<br>Magang" data-lang-en="Internship<br>Experiences">Pengalaman<br>Magang</span>
                             </div>
                         </div>
 
                         <a download="" href="assets/pdf/CV.pdf" class="button">
-                            Unduh CV
+                            <span data-lang-id="Unduh CV" data-lang-en="Download CV">Unduh CV</span>
                             <i class="uil uil-download-alt"></i>
                         </a>
 
@@ -179,8 +212,8 @@
             <div class="container">
 
                 <div class="section__head" data-reveal>
-                    <h2 class="section__title">Keahlian</h2>
-                    <p class="section__lead">Keahlian teknis saya, diukur seperti membaca datasheet.</p>
+                    <h2 class="section__title" data-lang-id="Keahlian" data-lang-en="Skills">Keahlian</h2>
+                    <p class="section__lead" data-lang-id="Keahlian teknis saya, diukur seperti membaca datasheet." data-lang-en="My technical skills, measured like reading a datasheet.">Keahlian teknis saya, diukur seperti membaca datasheet.</p>
                 </div>
 
                 <div class="skills__container" data-reveal>
@@ -190,8 +223,8 @@
                         <button class="skills__header" type="button">
                             <i class="uil uil-brackets-curly skills__icon"></i>
                             <span class="skills__headtext">
-                                <span class="skills__title">Pemrograman &amp; Web</span>
-                                <span class="skills__subtitle">Keahlian pengembangan</span>
+                                <span class="skills__title" data-lang-id="Pemrograman &amp; Web" data-lang-en="Programming &amp; Web">Pemrograman &amp; Web</span>
+                                <span class="skills__subtitle" data-lang-id="Keahlian pengembangan" data-lang-en="Development skills">Keahlian pengembangan</span>
                             </span>
                             <i class="uil uil-angle-down skills__arrow"></i>
                         </button>
@@ -233,8 +266,8 @@
                         <button class="skills__header" type="button">
                             <i class="uil uil-circuit skills__icon"></i>
                             <span class="skills__headtext">
-                                <span class="skills__title">Elektronika &amp; IoT</span>
-                                <span class="skills__subtitle">Keahlian perangkat keras</span>
+                                <span class="skills__title" data-lang-id="Elektronika &amp; IoT" data-lang-en="Electronics &amp; IoT">Elektronika &amp; IoT</span>
+                                <span class="skills__subtitle" data-lang-id="Keahlian perangkat keras" data-lang-en="Hardware skills">Keahlian perangkat keras</span>
                             </span>
                             <i class="uil uil-angle-down skills__arrow"></i>
                         </button>
@@ -280,18 +313,18 @@
             <div class="container">
 
                 <div class="section__head" data-reveal>
-                    <h2 class="section__title">Pendidikan &amp; Pengalaman</h2>
-                    <p class="section__lead">Perjalanan pendidikan dan profesional saya.</p>
+                    <h2 class="section__title" data-lang-id="Pendidikan &amp; Pengalaman" data-lang-en="Education &amp; Experience">Pendidikan &amp; Pengalaman</h2>
+                    <p class="section__lead" data-lang-id="Perjalanan pendidikan dan profesional saya." data-lang-en="My educational and professional journey.">Perjalanan pendidikan dan profesional saya.</p>
                 </div>
 
                 <div class="qualification__container" data-reveal>
 
                     <div class="qualification__tabs">
                         <button class="qualification__button qualification__active" data-target="#education" type="button">
-                            <i class="uil uil-graduation-cap"></i> Pendidikan
+                            <i class="uil uil-graduation-cap"></i> <span data-lang-id="Pendidikan" data-lang-en="Education">Pendidikan</span>
                         </button>
                         <button class="qualification__button" data-target="#experience" type="button">
-                            <i class="uil uil-briefcase-alt"></i> Pengalaman
+                            <i class="uil uil-briefcase-alt"></i> <span data-lang-id="Pengalaman" data-lang-en="Experience">Pengalaman</span>
                         </button>
                     </div>
 
@@ -309,7 +342,7 @@
                             <div class="qualification__data">
                                 <h3 class="qualification__title">D3 Teknik Elektronika Industri</h3>
                                 <span class="qualification__subtitle">Politeknik Negeri Jakarta</span>
-                                <div class="qualification__calendar"><i class="uil uil-calendar-alt"></i> 2024 — Sekarang</div>
+                                <div class="qualification__calendar"><i class="uil uil-calendar-alt"></i> 2024 — <span data-lang-id="Sekarang" data-lang-en="Present">Sekarang</span></div>
                             </div>
 
                         </div>
@@ -318,21 +351,21 @@
                         <div class="qualification__content" data-content id="experience">
 
                             <div class="qualification__data">
-                                <h3 class="qualification__title">Siswa PKL — Divisi Speaker 1</h3>
+                                <h3 class="qualification__title" data-lang-id="Siswa PKL — Divisi Speaker 1" data-lang-en="Intern Student — Speaker 1 Division">Siswa PKL — Divisi Speaker 1</h3>
                                 <span class="qualification__subtitle">TOA Galva Industries</span>
-                                <div class="qualification__calendar"><i class="uil uil-calendar-alt"></i> Januari 2023 — Maret 2023</div>
+                                <div class="qualification__calendar"><i class="uil uil-calendar-alt"></i> <span data-lang-id="Januari 2023 — Maret 2023" data-lang-en="January 2023 — March 2023">Januari 2023 — Maret 2023</span></div>
                             </div>
 
                             <div class="qualification__data">
-                                <h3 class="qualification__title">Siswa PKL</h3>
+                                <h3 class="qualification__title" data-lang-id="Siswa PKL" data-lang-en="Intern Student">Siswa PKL</h3>
                                 <span class="qualification__subtitle">Panasonic Manufacture Indonesia — Divisi AC</span>
-                                <div class="qualification__calendar"><i class="uil uil-calendar-alt"></i> Juli 2023 — September 2023</div>
+                                <div class="qualification__calendar"><i class="uil uil-calendar-alt"></i> <span data-lang-id="Juli 2023 — September 2023" data-lang-en="July 2023 — September 2023">Juli 2023 — September 2023</span></div>
                             </div>
 
                             <div class="qualification__data">
                                 <h3 class="qualification__title">Internship — IT &amp; Elektronika</h3>
                                 <span class="qualification__subtitle">KSO HLP / Angkasa Pura Indonesia</span>
-                                <div class="qualification__calendar"><i class="uil uil-calendar-alt"></i> Agustus 2026 — Desember 2026</div>
+                                <div class="qualification__calendar"><i class="uil uil-calendar-alt"></i> <span data-lang-id="Agustus 2026 — Desember 2026" data-lang-en="August 2026 — December 2026">Agustus 2026 — Desember 2026</span></div>
                             </div>
 
                         </div>
@@ -347,8 +380,8 @@
             <div class="container">
 
                 <div class="section__head" data-reveal>
-                    <h2 class="section__title">Bidang Keahlian</h2>
-                    <p class="section__lead">Hal yang saya kerjakan dan minati.</p>
+                    <h2 class="section__title" data-lang-id="Bidang Keahlian" data-lang-en="Fields of Expertise">Bidang Keahlian</h2>
+                    <p class="section__lead" data-lang-id="Hal yang saya kerjakan dan minati." data-lang-en="What I do and what interests me.">Hal yang saya kerjakan dan minati.</p>
                 </div>
 
                 <div class="services__container">
@@ -356,19 +389,19 @@
                     <!--==================== SERVICE 1 ====================-->
                     <article class="services__card" data-reveal-fade data-reveal-delay="0">
                         <i class="uil uil-web-grid services__icon"></i>
-                        <h3 class="services__title">Pengembangan Web</h3>
+                        <h3 class="services__title" data-lang-id="Pengembangan Web" data-lang-en="Web Development">Pengembangan Web</h3>
                         <button class="services__button" type="button" data-modal="0">
-                            Lihat Selengkapnya <i class="uil uil-arrow-right"></i>
+                            <span data-lang-id="Lihat Selengkapnya" data-lang-en="View More">Lihat Selengkapnya</span> <i class="uil uil-arrow-right"></i>
                         </button>
 
                         <div class="services__modal" data-modal-view="0">
                             <div class="services__modal-content">
-                                <h4 class="services__modal-title">Pengembangan Web</h4>
+                                <h4 class="services__modal-title" data-lang-id="Pengembangan Web" data-lang-en="Web Development">Pengembangan Web</h4>
                                 <i class="uil uil-times services__modal-close"></i>
                                 <ul class="services__modal-services">
-                                    <li><i class="uil uil-check-circle"></i> Mengembangkan website yang responsif.</li>
-                                    <li><i class="uil uil-check-circle"></i> Membuat antarmuka yang modern dan bersih.</li>
-                                    <li><i class="uil uil-check-circle"></i> Mengembangkan pengalaman web yang interaktif.</li>
+                                    <li><i class="uil uil-check-circle"></i> <span data-lang-id="Mengembangkan website yang responsif." data-lang-en="Developing responsive websites.">Mengembangkan website yang responsif.</span></li>
+                                    <li><i class="uil uil-check-circle"></i> <span data-lang-id="Membuat antarmuka yang modern dan bersih." data-lang-en="Creating modern and clean user interfaces.">Membuat antarmuka yang modern dan bersih.</span></li>
+                                    <li><i class="uil uil-check-circle"></i> <span data-lang-id="Mengembangkan pengalaman web yang interaktif." data-lang-en="Building interactive web experiences.">Mengembangkan pengalaman web yang interaktif.</span></li>
                                 </ul>
                             </div>
                         </div>
@@ -377,19 +410,19 @@
                     <!--==================== SERVICE 2 ====================-->
                     <article class="services__card" data-reveal-fade data-reveal-delay="1">
                         <i class="uil uil-circuit services__icon"></i>
-                        <h3 class="services__title">Elektronika &amp; IoT</h3>
+                        <h3 class="services__title" data-lang-id="Elektronika &amp; IoT" data-lang-en="Electronics &amp; IoT">Elektronika &amp; IoT</h3>
                         <button class="services__button" type="button" data-modal="1">
-                            Lihat Selengkapnya <i class="uil uil-arrow-right"></i>
+                            <span data-lang-id="Lihat Selengkapnya" data-lang-en="View More">Lihat Selengkapnya</span> <i class="uil uil-arrow-right"></i>
                         </button>
 
                         <div class="services__modal" data-modal-view="1">
                             <div class="services__modal-content">
-                                <h4 class="services__modal-title">Elektronika &amp; IoT</h4>
+                                <h4 class="services__modal-title" data-lang-id="Elektronika &amp; IoT" data-lang-en="Electronics &amp; IoT">Elektronika &amp; IoT</h4>
                                 <i class="uil uil-times services__modal-close"></i>
                                 <ul class="services__modal-services">
-                                    <li><i class="uil uil-check-circle"></i> Pemrograman mikrokontroler.</li>
-                                    <li><i class="uil uil-check-circle"></i> Pengembangan proyek berbasis Arduino.</li>
-                                    <li><i class="uil uil-check-circle"></i> Pengembangan sistem Internet of Things.</li>
+                                    <li><i class="uil uil-check-circle"></i> <span data-lang-id="Pemrograman mikrokontroler." data-lang-en="Microcontroller programming.">Pemrograman mikrokontroler.</span></li>
+                                    <li><i class="uil uil-check-circle"></i> <span data-lang-id="Pengembangan proyek berbasis Arduino." data-lang-en="Arduino-based project development.">Pengembangan proyek berbasis Arduino.</span></li>
+                                    <li><i class="uil uil-check-circle"></i> <span data-lang-id="Pengembangan sistem Internet of Things." data-lang-en="Developing Internet of Things systems.">Pengembangan sistem Internet of Things.</span></li>
                                 </ul>
                             </div>
                         </div>
@@ -398,19 +431,19 @@
                     <!--==================== SERVICE 3 ====================-->
                     <article class="services__card" data-reveal-fade data-reveal-delay="2">
                         <i class="uil uil-brain services__icon"></i>
-                        <h3 class="services__title">Otomasi &amp; Kontrol</h3>
+                        <h3 class="services__title" data-lang-id="Otomasi &amp; Kontrol" data-lang-en="Automation &amp; Control">Otomasi &amp; Kontrol</h3>
                         <button class="services__button" type="button" data-modal="2">
-                            Lihat Selengkapnya <i class="uil uil-arrow-right"></i>
+                            <span data-lang-id="Lihat Selengkapnya" data-lang-en="View More">Lihat Selengkapnya</span> <i class="uil uil-arrow-right"></i>
                         </button>
 
                         <div class="services__modal" data-modal-view="2">
                             <div class="services__modal-content">
-                                <h4 class="services__modal-title">Otomasi &amp; Kontrol</h4>
+                                <h4 class="services__modal-title" data-lang-id="Otomasi &amp; Kontrol" data-lang-en="Automation &amp; Control">Otomasi &amp; Kontrol</h4>
                                 <i class="uil uil-times services__modal-close"></i>
                                 <ul class="services__modal-services">
-                                    <li><i class="uil uil-check-circle"></i> Perancangan sistem kontrol.</li>
-                                    <li><i class="uil uil-check-circle"></i> Dasar sistem otomasi industri.</li>
-                                    <li><i class="uil uil-check-circle"></i> Integrasi perangkat elektronik.</li>
+                                    <li><i class="uil uil-check-circle"></i> <span data-lang-id="Perancangan sistem kontrol." data-lang-en="Control system design.">Perancangan sistem kontrol.</span></li>
+                                    <li><i class="uil uil-check-circle"></i> <span data-lang-id="Dasar sistem otomasi industri." data-lang-en="Fundamentals of industrial automation systems.">Dasar sistem otomasi industri.</span></li>
+                                    <li><i class="uil uil-check-circle"></i> <span data-lang-id="Integrasi perangkat elektronik." data-lang-en="Integration of electronic devices.">Integrasi perangkat elektronik.</span></li>
                                 </ul>
                             </div>
                         </div>
@@ -425,8 +458,8 @@
             <div class="container">
 
                 <div class="section__head" data-reveal>
-                    <h2 class="section__title">Proyek</h2>
-                    <p class="section__lead">Proyek yang pernah saya kerjakan.</p>
+                    <h2 class="section__title" data-lang-id="Proyek" data-lang-en="Projects">Proyek</h2>
+                    <p class="section__lead" data-lang-id="Proyek yang pernah saya kerjakan." data-lang-en="Projects I have worked on.">Proyek yang pernah saya kerjakan.</p>
                 </div>
 
                 <div class="portfolio__grid">
@@ -436,12 +469,14 @@
                             <img src="assets/img/portfolio1.jpg" alt="Proyek IoT" loading="lazy">
                         </div>
                         <div class="portfolio__data">
-                            <h3 class="portfolio__title">Sistem Fermentasi Otomatis Berbasis IoT</h3>
-                            <p class="portfolio__description">
+                            <h3 class="portfolio__title" data-lang-id="Sistem Fermentasi Otomatis Berbasis IoT" data-lang-en="IoT-Based Automatic Fermentation System">Sistem Fermentasi Otomatis Berbasis IoT</h3>
+                            <p class="portfolio__description" data-lang-id="Sistem Fermentasi Internet of Things untuk menghubungkan perangkat elektronik dengan sistem pemantauan serta kontrol." data-lang-en="IoT Fermentation System connecting electronic devices with monitoring and control systems.">
                                 Sistem Fermentasi Internet of Things untuk menghubungkan
                                 perangkat elektronik dengan sistem pemantauan serta kontrol.
                             </p>
-                            <a href="https://drive.google.com/file/d/1vVNuxhWNg5vmuDhasiyBt56e9w-BK2y7/view?usp=sharing" target="_blank" class="portfolio__link">Lihat Proyek <i class="uil uil-arrow-right"></i></a>
+                            <a href="https://drive.google.com/file/d/1vVNuxhWNg5vmuDhasiyBt56e9w-BK2y7/view?usp=sharing" target="_blank" class="portfolio__link">
+                                <span data-lang-id="Lihat Proyek" data-lang-en="View Project">Lihat Proyek</span> <i class="uil uil-arrow-right"></i>
+                            </a>
                         </div>
                     </article>
 
@@ -450,12 +485,14 @@
                             <img src="assets/img/portfolio2.jpg" alt="Proyek Web" loading="lazy">
                         </div>
                         <div class="portfolio__data">
-                            <h3 class="portfolio__title">Sistem Monitoring dan Kontrol Pompa Dosing</h3>
-                            <p class="portfolio__description">
+                            <h3 class="portfolio__title" data-lang-id="Sistem Monitoring dan Kontrol Pompa Dosing" data-lang-en="Monitoring &amp; Control System for Dosing Pump">Sistem Monitoring dan Kontrol Pompa Dosing</h3>
+                            <p class="portfolio__description" data-lang-id="Merancang sistem berbasis sensor dan IoT untuk monitoring aliran dan kontrol pompa otomatis." data-lang-en="Designing sensor and IoT-based system for flow monitoring and automatic pump control.">
                                 Merancang sistem berbasis sensor dan IoT untuk 
                                 monitoring aliran dan kontrol pompa otomatis.
                             </p>
-                            <a href="https://drive.google.com/file/d/1vJuTw-fC_N2r9byMugdVBia8ksA67LpQ/view?usp=sharing" target="_blank" class="portfolio__link">Lihat Proyek <i class="uil uil-arrow-right"></i></a>
+                            <a href="https://drive.google.com/file/d/1vJuTw-fC_N2r9byMugdVBia8ksA67LpQ/view?usp=sharing" target="_blank" class="portfolio__link">
+                                <span data-lang-id="Lihat Proyek" data-lang-en="View Project">Lihat Proyek</span> <i class="uil uil-arrow-right"></i>
+                            </a>
                         </div>
                     </article>
 
@@ -464,11 +501,13 @@
                             <img src="assets/img/portfolio3.jpg" alt="Proyek Elektronika" loading="lazy">
                         </div>
                         <div class="portfolio__data">
-                            <h3 class="portfolio__title">Pembuatan Trainer kit Encoder-Decoder</h3>
-                            <p class="portfolio__description">
+                            <h3 class="portfolio__title" data-lang-id="Pembuatan Trainer kit Encoder-Decoder" data-lang-en="Development of Encoder-Decoder Trainer Kit">Pembuatan Trainer kit Encoder-Decoder</h3>
+                            <p class="portfolio__description" data-lang-id="Berkontribusi dalam pembuatan trainer kit encoder-decoder" data-lang-en="Contributed to the development of encoder-decoder trainer kit">
                                 Berkontribusi dalam pembuatan trainer kit encoder-decoder
                             </p>
-                            <a href="https://drive.google.com/drive/folders/1GINURDGGwjqeyrdV6Akm2LZbqom1mI-n?usp=sharing" target="_blank" class="portfolio__link">Lihat Proyek <i class="uil uil-arrow-right"></i></a>
+                            <a href="https://drive.google.com/drive/folders/1GINURDGGwjqeyrdV6Akm2LZbqom1mI-n?usp=sharing" target="_blank" class="portfolio__link">
+                                <span data-lang-id="Lihat Proyek" data-lang-en="View Project">Lihat Proyek</span> <i class="uil uil-arrow-right"></i>
+                            </a>
                         </div>
                     </article>
 
@@ -481,12 +520,12 @@
             <div class="container project__container">
 
                 <div class="project__data" data-reveal>
-                    <h2 class="project__title">Punya proyek?</h2>
-                    <p class="project__description">
+                    <h2 class="project__title" data-lang-id="Punya proyek?" data-lang-en="Have a project?">Punya proyek?</h2>
+                    <p class="project__description" data-lang-id="Mari berkolaborasi dan membangun sesuatu yang bermanfaat." data-lang-en="Let's collaborate and build something meaningful.">
                         Mari berkolaborasi dan membangun sesuatu yang bermanfaat.
                     </p>
                     <a href="#contact" class="button button--white">
-                        Hubungi Saya <i class="uil uil-message"></i>
+                        <span data-lang-id="Hubungi Saya" data-lang-en="Contact Me">Hubungi Saya</span> <i class="uil uil-message"></i>
                     </a>
                 </div>
 
@@ -500,8 +539,8 @@
             <div class="container">
 
                 <div class="section__head" data-reveal>
-                    <h2 class="section__title">Kontak</h2>
-                    <p class="section__lead">Mari terhubung.</p>
+                    <h2 class="section__title" data-lang-id="Kontak" data-lang-en="Contact">Kontak</h2>
+                    <p class="section__lead" data-lang-id="Mari terhubung." data-lang-en="Get in touch.">Mari terhubung.</p>
                 </div>
 
                 <div class="contact__container">
@@ -511,7 +550,7 @@
                         <div class="contact__information">
                             <i class="uil uil-phone"></i>
                             <div>
-                                <h3 class="contact__title">Telepon</h3>
+                                <h3 class="contact__title" data-lang-id="Telepon" data-lang-en="Phone">Telepon</h3>
                                 <span class="contact__subtitle">+62 0895-3919-85969</span>
                             </div>
                         </div>
@@ -527,8 +566,8 @@
                         <div class="contact__information">
                             <i class="uil uil-map-marker"></i>
                             <div>
-                                <h3 class="contact__title">Lokasi</h3>
-                                <span class="contact__subtitle">Indonesia, Jawa Barat, Depok</span>
+                                <h3 class="contact__title" data-lang-id="Lokasi" data-lang-en="Location">Lokasi</h3>
+                                <span class="contact__subtitle" data-lang-id="Indonesia, Jawa Barat, Depok" data-lang-en="Indonesia, West Java, Depok">Indonesia, Jawa Barat, Depok</span>
                             </div>
                         </div>
 
@@ -538,7 +577,7 @@
 
                         <div class="contact__inputs">
                             <div class="contact__content">
-                                <label for="contact-name" class="contact__label">Nama</label>
+                                <label for="contact-name" class="contact__label" data-lang-id="Nama" data-lang-en="Name">Nama</label>
                                 <input type="text" id="contact-name" class="contact__input" required>
                             </div>
                             <div class="contact__content">
@@ -548,17 +587,17 @@
                         </div>
 
                         <div class="contact__content">
-                            <label for="contact-project" class="contact__label">Proyek</label>
+                            <label for="contact-project" class="contact__label" data-lang-id="Proyek" data-lang-en="Project">Proyek</label>
                             <input type="text" id="contact-project" class="contact__input" required>
                         </div>
 
                         <div class="contact__content">
-                            <label for="contact-message" class="contact__label">Pesan</label>
+                            <label for="contact-message" class="contact__label" data-lang-id="Pesan" data-lang-en="Message">Pesan</label>
                             <textarea id="contact-message" rows="6" class="contact__input" required></textarea>
                         </div>
 
                         <button type="submit" class="button">
-                            Kirim Pesan <i class="uil uil-message"></i>
+                            <span data-lang-id="Kirim Pesan" data-lang-en="Send Message">Kirim Pesan</span> <i class="uil uil-message"></i>
                         </button>
 
                     </form>
@@ -575,13 +614,13 @@
 
             <div class="footer__brand">
                 <h3 class="footer__title">Shyham Muzzaqi D.</h3>
-                <span class="footer__subtitle">Mahasiswa Teknik Elektronika Industri</span>
+                <span class="footer__subtitle" data-lang-id="Mahasiswa Teknik Elektronika Industri" data-lang-en="Industrial Electronic Engineering Student">Mahasiswa Teknik Elektronika Industri</span>
             </div>
 
             <ul class="footer__links">
-                <li><a href="#about" class="footer__link">Tentang</a></li>
-                <li><a href="#portfolio" class="footer__link">Proyek</a></li>
-                <li><a href="#contact" class="footer__link">Kontak</a></li>
+                <li><a href="#about" class="footer__link" data-lang-id="Tentang" data-lang-en="About">Tentang</a></li>
+                <li><a href="#portfolio" class="footer__link" data-lang-id="Proyek" data-lang-en="Projects">Proyek</a></li>
+                <li><a href="#contact" class="footer__link" data-lang-id="Kontak" data-lang-en="Contact">Kontak</a></li>
             </ul>
 
             <div class="footer__socials">
@@ -592,7 +631,7 @@
 
         </div>
 
-        <p class="footer__copy">&#169; 2026 Shyham. Hak cipta dilindungi.</p>
+        <p class="footer__copy">&#169; 2026 Shyham. <span data-lang-id="Hak cipta dilindungi." data-lang-en="All rights reserved.">Hak cipta dilindungi.</span></p>
     </footer>
 
     <!-- ==================== SCROLL TOP ==================== -->
@@ -605,30 +644,64 @@
 
     <script src="assets/js/main.js"></script>
 
-   <script>
-    // Tunggu sampai seluruh struktur halaman selesai dimuat
-    document.addEventListener('DOMContentLoaded', function() {
-        const contactForm = document.getElementById('contact-form');
+    <!-- SCRIPT MULTI-LANGUAGE SWITCHER -->
+    <script>
+        function switchLanguage(lang) {
+            const elements = document.querySelectorAll('[data-lang-id]');
 
-        if (contactForm) {
-            contactForm.addEventListener('submit', function(e) {
-                // Mencegah main.js atau browser mengosongkan form / reload halaman
-                e.preventDefault();
-                e.stopPropagation();
+            elements.forEach(el => {
+                if (lang === 'en') {
+                    const textEn = el.getAttribute('data-lang-en');
+                    if (textEn) {
+                        if (el.children.length === 0) {
+                            el.innerHTML = textEn;
+                        } else {
+                            el.childNodes[0].textContent = textEn;
+                        }
+                    }
+                } else {
+                    const textId = el.getAttribute('data-lang-id');
+                    if (textId) {
+                        if (el.children.length === 0) {
+                            el.innerHTML = textId;
+                        } else {
+                            el.childNodes[0].textContent = textId;
+                        }
+                    }
+                }
+            });
 
-                // Ambil nilai dari input form
-                const name = document.getElementById('contact-name')?.value || '';
-                const userEmail = document.getElementById('contact-email')?.value || '';
-                const project = document.getElementById('contact-project')?.value || '';
-                const message = document.getElementById('contact-message')?.value || '';
+            document.getElementById('btn-id').classList.toggle('active', lang === 'id');
+            document.getElementById('btn-en').classList.toggle('active', lang === 'en');
 
-                const targetEmail = 'shyhamdesmar@gmail.com';
-                
-                // Subjek Gmail
-                const subject = encodeURIComponent(`[Pertanyaan Proyek] ${project} - ${name}`);
+            localStorage.setItem('selectedLang', lang);
+        }
 
-                // Template Isi Email (Body)
-                const bodyContent = 
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('selectedLang') || 'id';
+            switchLanguage(savedLang);
+        });
+    </script>
+
+    <!-- SCRIPT GMAIL AUTOFILL -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const contactForm = document.getElementById('contact-form');
+
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+
+                    const name = document.getElementById('contact-name')?.value || '';
+                    const userEmail = document.getElementById('contact-email')?.value || '';
+                    const project = document.getElementById('contact-project')?.value || '';
+                    const message = document.getElementById('contact-message')?.value || '';
+
+                    const targetEmail = 'shyhamdesmar@gmail.com';
+                    const subject = encodeURIComponent(`[Pertanyaan Proyek] ${project} - ${name}`);
+
+                    const bodyContent = 
 `Halo Shyham,
 
 Saya ingin berkonsultasi mengenai proyek berikut:
@@ -644,14 +717,13 @@ ${message}
 
 Terima kasih.`;
 
-                const encodedBody = encodeURIComponent(bodyContent);
+                    const encodedBody = encodeURIComponent(bodyContent);
 
-                // Buka Gmail Compose di tab baru dengan isi yang sudah terisi otomatis
-                window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=${targetEmail}&su=${subject}&body=${encodedBody}`, '_blank');
-            }, true); // Parameter 'true' memastikan event ini dieksekusi paling awal
-        }
-    });
-</script>
+                    window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=${targetEmail}&su=${subject}&body=${encodedBody}`, '_blank');
+                }, true);
+            }
+        });
+    </script>
 
 </body>
 
