@@ -606,22 +606,45 @@
     <script src="assets/js/main.js"></script>
 
     <!-- Script redirect ke Gmail Compose -->
-    <script>
-        document.getElementById('contact-form').addEventListener('submit', function(e) {
-            e.preventDefault();
+   <!-- Script redirect ke Gmail Compose dengan format pesan rapi -->
+<script>
+    document.getElementById('contact-form').addEventListener('submit', function(e) {
+        e.preventDefault();
 
-            const name = document.getElementById('contact-name').value;
-            const userEmail = document.getElementById('contact-email').value;
-            const project = document.getElementById('contact-project').value;
-            const message = document.getElementById('contact-message').value;
+        // Ambil nilai dari formulir
+        const name = document.getElementById('contact-name').value;
+        const userEmail = document.getElementById('contact-email').value;
+        const project = document.getElementById('contact-project').value;
+        const message = document.getElementById('contact-message').value;
 
-            const targetEmail = 'shyhamdesmar@gmail.com';
-            const subject = encodeURIComponent(`[Proyek: ${project}] dari ${name}`);
-            const body = encodeURIComponent(`Nama: ${name}\nEmail Pengirim: ${userEmail}\nProyek: ${project}\n\nPesan:\n${message}`);
+        const targetEmail = 'shyhamdesmar@gmail.com';
+        
+        // Judul/Subjek Email
+        const subject = encodeURIComponent(`[Pertanyaan Proyek] ${project} - ${name}`);
 
-            window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=${targetEmail}&su=${subject}&body=${body}`, '_blank');
-        });
-    </script>
+        // Draf Isi Pesan yang Otomatis Terisi di Gmail
+        const bodyContent = 
+`Halo Shyham,
+
+Saya ingin berkonsultasi mengenai proyek berikut:
+
+- Nama Pengirim : ${name}
+- Email Kontak   : ${userEmail}
+- Judul Proyek   : ${project}
+
+Detail Pesan:
+--------------------------------------------------
+${message}
+--------------------------------------------------
+
+Terima kasih.`;
+
+        const encodedBody = encodeURIComponent(bodyContent);
+
+        // Buka tab Gmail baru dengan data yang sudah terisi otomatis
+        window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=${targetEmail}&su=${subject}&body=${encodedBody}`, '_blank');
+    });
+</script>
 
 </body>
 
