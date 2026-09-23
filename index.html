@@ -65,7 +65,6 @@
             <div class="home__container container">
 
                 <svg class="home__traces" viewBox="0 0 1200 640" preserveAspectRatio="none" aria-hidden="true">
-                   <svg class="home__traces" viewBox="0 0 1200 640" preserveAspectRatio="none" aria-hidden="true">
                     <path class="trace" d="M0 120 V300" />
                     <path class="trace" d="M0 480 V220" />
                     <path class="trace trace--copper" d="M1200 90 H860 L820 130 V260 L780 300 H700" />
@@ -79,7 +78,6 @@
 
                 <div class="home__content" data-reveal>
 
-                    
                     <p class="home__greeting">
                         <span class="home__greeting-wave">👋</span>
                         Halo, selamat datang di portofolio saya
@@ -440,10 +438,10 @@
                         <div class="portfolio__data">
                             <h3 class="portfolio__title">Sistem Fermentasi Otomatis Berbasis IoT</h3>
                             <p class="portfolio__description">
-                                Sistem Frementasi Internet of Things untuk menghubungkan
-                                perangkat elektronik dengan sistem pemantauan Serta Kontrol.
+                                Sistem Fermentasi Internet of Things untuk menghubungkan
+                                perangkat elektronik dengan sistem pemantauan serta kontrol.
                             </p>
-                            <a href="https://drive.google.com/file/d/1vVNuxhWNg5vmuDhasiyBt56e9w-BK2y7/view?usp=sharing" class="portfolio__link">Lihat Proyek <i class="uil uil-arrow-right"></i></a>
+                            <a href="https://drive.google.com/file/d/1vVNuxhWNg5vmuDhasiyBt56e9w-BK2y7/view?usp=sharing" target="_blank" class="portfolio__link">Lihat Proyek <i class="uil uil-arrow-right"></i></a>
                         </div>
                     </article>
 
@@ -457,7 +455,7 @@
                                 Merancang sistem berbasis sensor dan IoT untuk 
                                 monitoring aliran dan kontrol pompa otomatis.
                             </p>
-                            <a href="https://drive.google.com/file/d/1vJuTw-fC_N2r9byMugdVBia8ksA67LpQ/view?usp=sharing" class="portfolio__link">Lihat Proyek <i class="uil uil-arrow-right"></i></a>
+                            <a href="https://drive.google.com/file/d/1vJuTw-fC_N2r9byMugdVBia8ksA67LpQ/view?usp=sharing" target="_blank" class="portfolio__link">Lihat Proyek <i class="uil uil-arrow-right"></i></a>
                         </div>
                     </article>
 
@@ -470,7 +468,7 @@
                             <p class="portfolio__description">
                                 Berkontribusi dalam pembuatan trainer kit encoder-decoder
                             </p>
-                            <a href="https://drive.google.com/drive/folders/1GINURDGGwjqeyrdV6Akm2LZbqom1mI-n?usp=sharing" class="portfolio__link">Lihat Proyek <i class="uil uil-arrow-right"></i></a>
+                            <a href="https://drive.google.com/drive/folders/1GINURDGGwjqeyrdV6Akm2LZbqom1mI-n?usp=sharing" target="_blank" class="portfolio__link">Lihat Proyek <i class="uil uil-arrow-right"></i></a>
                         </div>
                     </article>
 
@@ -522,7 +520,7 @@
                             <i class="uil uil-envelope"></i>
                             <div>
                                 <h3 class="contact__title">Email</h3>
-                                <span class="contact__subtitle">shyhamdesmar@gmail.com</span>
+                                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=shyhamdesmar@gmail.com" target="_blank" class="contact__subtitle">shyhamdesmar@gmail.com</a>
                             </div>
                         </div>
 
@@ -536,27 +534,27 @@
 
                     </div>
 
-                    <form action="" class="contact__form" data-reveal data-reveal-delay="1">
+                    <form id="contact-form" class="contact__form" data-reveal data-reveal-delay="1">
 
                         <div class="contact__inputs">
                             <div class="contact__content">
                                 <label for="contact-name" class="contact__label">Nama</label>
-                                <input type="text" id="contact-name" class="contact__input">
+                                <input type="text" id="contact-name" class="contact__input" required>
                             </div>
                             <div class="contact__content">
                                 <label for="contact-email" class="contact__label">Email</label>
-                                <input type="email" id="contact-email" class="contact__input">
+                                <input type="email" id="contact-email" class="contact__input" required>
                             </div>
                         </div>
 
                         <div class="contact__content">
                             <label for="contact-project" class="contact__label">Proyek</label>
-                            <input type="text" id="contact-project" class="contact__input">
+                            <input type="text" id="contact-project" class="contact__input" required>
                         </div>
 
                         <div class="contact__content">
                             <label for="contact-message" class="contact__label">Pesan</label>
-                            <textarea id="contact-message" rows="6" class="contact__input"></textarea>
+                            <textarea id="contact-message" rows="6" class="contact__input" required></textarea>
                         </div>
 
                         <button type="submit" class="button">
@@ -606,6 +604,24 @@
     <div class="toast-stack" id="toast-stack" aria-live="polite" aria-atomic="true"></div>
 
     <script src="assets/js/main.js"></script>
+
+    <!-- Script redirect ke Gmail Compose -->
+    <script>
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const name = document.getElementById('contact-name').value;
+            const userEmail = document.getElementById('contact-email').value;
+            const project = document.getElementById('contact-project').value;
+            const message = document.getElementById('contact-message').value;
+
+            const targetEmail = 'shyhamdesmar@gmail.com';
+            const subject = encodeURIComponent(`[Proyek: ${project}] dari ${name}`);
+            const body = encodeURIComponent(`Nama: ${name}\nEmail Pengirim: ${userEmail}\nProyek: ${project}\n\nPesan:\n${message}`);
+
+            window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=${targetEmail}&su=${subject}&body=${body}`, '_blank');
+        });
+    </script>
 
 </body>
 
