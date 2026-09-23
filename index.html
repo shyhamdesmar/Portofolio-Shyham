@@ -605,25 +605,30 @@
 
     <script src="assets/js/main.js"></script>
 
-    <!-- Script redirect ke Gmail Compose -->
-   <!-- Script redirect ke Gmail Compose dengan format pesan rapi -->
-<script>
-    document.getElementById('contact-form').addEventListener('submit', function(e) {
-        e.preventDefault();
+   <script>
+    // Tunggu sampai seluruh struktur halaman selesai dimuat
+    document.addEventListener('DOMContentLoaded', function() {
+        const contactForm = document.getElementById('contact-form');
 
-        // Ambil nilai dari formulir
-        const name = document.getElementById('contact-name').value;
-        const userEmail = document.getElementById('contact-email').value;
-        const project = document.getElementById('contact-project').value;
-        const message = document.getElementById('contact-message').value;
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                // Mencegah main.js atau browser mengosongkan form / reload halaman
+                e.preventDefault();
+                e.stopPropagation();
 
-        const targetEmail = 'shyhamdesmar@gmail.com';
-        
-        // Judul/Subjek Email
-        const subject = encodeURIComponent(`[Pertanyaan Proyek] ${project} - ${name}`);
+                // Ambil nilai dari input form
+                const name = document.getElementById('contact-name')?.value || '';
+                const userEmail = document.getElementById('contact-email')?.value || '';
+                const project = document.getElementById('contact-project')?.value || '';
+                const message = document.getElementById('contact-message')?.value || '';
 
-        // Draf Isi Pesan yang Otomatis Terisi di Gmail
-        const bodyContent = 
+                const targetEmail = 'shyhamdesmar@gmail.com';
+                
+                // Subjek Gmail
+                const subject = encodeURIComponent(`[Pertanyaan Proyek] ${project} - ${name}`);
+
+                // Template Isi Email (Body)
+                const bodyContent = 
 `Halo Shyham,
 
 Saya ingin berkonsultasi mengenai proyek berikut:
@@ -639,10 +644,12 @@ ${message}
 
 Terima kasih.`;
 
-        const encodedBody = encodeURIComponent(bodyContent);
+                const encodedBody = encodeURIComponent(bodyContent);
 
-        // Buka tab Gmail baru dengan data yang sudah terisi otomatis
-        window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=${targetEmail}&su=${subject}&body=${encodedBody}`, '_blank');
+                // Buka Gmail Compose di tab baru dengan isi yang sudah terisi otomatis
+                window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=${targetEmail}&su=${subject}&body=${encodedBody}`, '_blank');
+            }, true); // Parameter 'true' memastikan event ini dieksekusi paling awal
+        }
     });
 </script>
 
