@@ -674,44 +674,84 @@ input, textarea {
     }
 }
 
-/* ==================== SKILLS SOFTWARE GRID ==================== */
-.skills__software-grid {
+/*==================== SKILLS ====================*/
+.skills__grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
-    gap: 1.5rem;
-    margin-top: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 1.25rem;
+    max-width: 900px;
 }
 
-.skills__software-card {
-    background-color: var(--container-color, #1a1a1a);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 12px;
-    padding: 1.25rem 1rem;
+.skills__card {
+    background: var(--panel);
+    border: 1px solid var(--panel-border);
+    border-radius: 4px;
+    padding: 1.5rem 1rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 0.75rem;
-    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    gap: 0.8rem;
+    transition: transform 0.25s var(--ease-soft), border-color 0.25s var(--ease-soft), box-shadow 0.25s var(--ease-soft);
+    position: relative;
+    overflow: hidden;
 }
 
-.skills__software-card:hover {
-    transform: translateY(-5px);
-    border-color: var(--first-color, #007bff);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+.skills__card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--copper), transparent);
+    opacity: 0;
+    transition: opacity 0.25s var(--ease-soft);
 }
 
-.skills__software-img {
-    width: 48px;
-    height: 48px;
+.skills__card:hover {
+    border-color: var(--copper);
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .skills__card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    }
+
+    .skills__card:hover::before {
+        opacity: 1;
+    }
+}
+
+.skills__img {
+    width: 44px;
+    height: 44px;
     object-fit: contain;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
 }
 
-.skills__software-name {
-    font-size: 0.9rem;
+.skills__name {
+    font-size: 0.88rem;
     font-weight: 500;
-    color: var(--title-color, #fff);
+    color: var(--text);
     text-align: center;
+}
+
+@media screen and (max-width: 480px) {
+    .skills__grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.9rem;
+    }
+
+    .skills__card {
+        padding: 1.2rem 0.8rem;
+    }
+
+    .skills__img {
+        width: 36px;
+        height: 36px;
+    }
 }
 
 /*==================== QUALIFICATION ====================*/
